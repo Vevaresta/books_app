@@ -1,0 +1,18 @@
+### Get
+GET http://127.0.0.1:5000/jobs HTTP/1.1
+content-type: application/json
+
+### Get
+GET http://127.0.0.1:5000/jobs/1 HTTP/1.1
+content-type: application/json
+
+
+### Post
+POST http://127.0.0.1:5000/jobs HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Software Developer",
+    "description": "High Paying Position",
+    "salary": 200000
+}
