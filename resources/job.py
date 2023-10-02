@@ -14,7 +14,7 @@ class JobListResource(Resource):
             if job.is_published is True:
                 data.append(job.data)
 
-        return {"data": data}, HTTPStatus.OK
+        return {"Available Jobs": data}, HTTPStatus.OK
    
     def post(self):
         """POST Method to make job offer."""
@@ -41,3 +41,58 @@ class JobResource(Resource):
             return {"message": "job not found"}, HTTPStatus.NOT_FOUND
 
         return job.data, HTTPStatus.OK
+    
+    def put(self, job_id):
+        """PUT Method to update the specific job."""
+        data = request.get_json()
+
+        job = next((job for job in job_list
+                    if job.id is job_id), None)
+
+        if job is None:
+            return {"message": "job not found"}, HTTPStatus.NOT_FOUND
+        
+        job.title = data["title"]
+        job.description = data["description"]
+        job.salary = data["salary"]
+
+        return job.data, HTTPStatus.OK
+    
+    def delete(self, job_id):
+        """DELETE Method to delete specific job."""
+        job = next((job for job in job_list
+                    if job.id is job_id), None)
+        
+        if job is None:
+            return {"message": "job not found"}, HTTPStatus.NOT_FOUND
+        
+        job_list.remove(job)
+
+        return {}, HTTPStatus.NO_CONTENT
+
+
+class JobPublishResource(Resource):
+
+    def put(self, job_id):
+        """PUT Method to publish specific job."""
+        job = next((job for job in job_list
+                    if job.id is job_id), None)
+        
+        if job is None:
+            return {"message": "job not found"}, HTTPStatus.NOT_FOUND
+        
+        job.is_published = True
+
+        return {}, HTTPStatus.OK
+    
+    def delete(self, job_id):
+        """DELETE Method to delete specific job."""
+        job = next((job for job in job_list
+                    if job.id is job_id), None)
+        
+        if job is None:
+            return {"message": "job not found"}, HTTPStatus.NOT_FOUND
+        
+        job.is_published = False
+
+        return {}, HTTPStatus.OK

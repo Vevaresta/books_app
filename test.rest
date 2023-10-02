@@ -1,18 +1,36 @@
-### Get
+### Get all jobs
 GET http://127.0.0.1:5000/jobs HTTP/1.1
 content-type: application/json
 
-### Get
-GET http://127.0.0.1:5000/jobs/1 HTTP/1.1
+### Get single job
+GET http://127.0.0.1:5000/jobs/3 HTTP/1.1
 content-type: application/json
 
 
-### Post
+### Post a job
 POST http://127.0.0.1:5000/jobs HTTP/1.1
 content-type: application/json
 
 {
-    "title": "Software Developer",
+    "title": "Full Stack Developer",
     "description": "High Paying Position",
-    "salary": 200000
+    "salary": 100000
 }
+
+### Publish the job
+PUT http://127.0.0.1:5000/jobs/2/publish HTTP/1.1
+content-type: application/json
+
+### Update the job
+PUT http://127.0.0.1:5000/jobs/2 HTTP/1.1
+content-type: application/json
+
+{
+    "title": "CEO",
+    "description": "GIT GUT",
+    "salary": 100000000
+}
+
+### DELETE a job
+DELETE  http://127.0.0.1:5000/jobs/1/publish HTTP/1.1
+content-type: application/json
