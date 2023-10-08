@@ -1,3 +1,8 @@
+from extensions import db
+from sqlalchemy import Integer, String
+from sqlalchemy.orm import Mapped
+from sqlalchemy.orm import mapped_column
+
 job_list = []
 
 
@@ -10,19 +15,13 @@ def get_last_id():
     return last_job
 
 
-class Job:
-    def __init__(self, title, description, salary):
-        self.id = get_last_id()
-        self.title = title
-        self.description = description
-        self.salary = salary
-        self.is_published = False
+class Job(db.Model):
+    """Model class for job properties."""
+    
+    __tablename__ = "job"
 
-    @property
-    def data(self):
-        return {
-            "id": self.id,
-            "title": self.title,
-            "description": self.description,
-            "salary": self.salary
-        }
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str] = mapped_column(String(50), nullable=False)
+    description: Mapped[str] = mapped_column(String(100), nullable=False)
+    salary: Mapped[int] = mapped_column(Integer)
+    is_published = Mapped[bool] 

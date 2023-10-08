@@ -2,6 +2,8 @@ from flask import Flask
 from flask_restful import Api
 from resources.job import JobListResource, JobResource, JobPublishResource
 from config import Config
+from extensions import db
+from flask_migrate import Migrate
 
 
 # Initiate the app
@@ -9,6 +11,10 @@ app = Flask(__name__)
 
 # Configuration file
 app.config.from_object(Config)
+
+# Initialize Databank
+db.init_app(app)
+migrate = Migrate(app, db)
 
 # Flask Restfull
 api = Api(app)
