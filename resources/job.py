@@ -12,7 +12,7 @@ class JobListResource(Resource):
 
         for job in Job.get_all_published():
             if job.is_published is True:
-                job_data.append(job_data)
+                job_data.append(job.data)
 
         return {"Available Jobs": job_data}, HTTPStatus.OK
    
