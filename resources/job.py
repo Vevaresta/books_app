@@ -8,13 +8,13 @@ class JobListResource(Resource):
 
     def get(self):
         """GET Method to fetch all jobs."""
-        data = []
+        job_data = []
 
-        for job in job_list:
+        for job in Job.get_all_published():
             if job.is_published is True:
-                data.append(job.data)
+                job_data.append(job_data)
 
-        return {"Available Jobs": data}, HTTPStatus.OK
+        return {"Available Jobs": job_data}, HTTPStatus.OK
    
     def post(self):
         """POST Method to make job offer."""
@@ -25,7 +25,7 @@ class JobListResource(Resource):
             description=data["description"],
             salary=data["salary"]  
         )
-        job_list.append(job)
+        job.save()
         
         return job.data, HTTPStatus.CREATED
 
