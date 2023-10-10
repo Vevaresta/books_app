@@ -1,7 +1,7 @@
 from flask import request
 from flask_restful import Resource
 from http import HTTPStatus
-from models.job import Job, job_list
+from models.job import Job
 
 
 class JobListResource(Resource):
@@ -34,11 +34,13 @@ class JobResource(Resource):
 
     def get(self, job_id):
         """GET Method to fetch job with specific ID"""
-        job = next((job for job in job_list
-                    if job.id is job_id and job.is_published is True), None)
+        job = Job.get_by_id(job_id=job_id)
         
         if job is None:
             return {"message": "job not found"}, HTTPStatus.NOT_FOUND
+        
+        if job.is_published is False:
+            return {"message": "job not published"}, HTTPStatus.FORBIDDEN
 
         return job.data, HTTPStatus.OK
     
@@ -46,8 +48,7 @@ class JobResource(Resource):
         """PUT Method to update the specific job."""
         data = request.get_json()
 
-        job = next((job for job in job_list
-                    if job.id is job_id), None)
+        job = Job.get_by_id(job_id=job_id)
 
         if job is None:
             return {"message": "job not found"}, HTTPStatus.NOT_FOUND
@@ -56,17 +57,20 @@ class JobResource(Resource):
         job.description = data["description"]
         job.salary = data["salary"]
 
+        # Save the update to database
+        job.save()
+
         return job.data, HTTPStatus.OK
     
     def delete(self, job_id):
         """DELETE Method to delete specific job."""
-        job = next((job for job in job_list
-                    if job.id is job_id), None)
+        job = Job.get_by_id(job_id=job_id)
         
         if job is None:
             return {"message": "job not found"}, HTTPStatus.NOT_FOUND
         
-        job_list.remove(job)
+        # Delete the job from the database
+        job.delete()
 
         return {}, HTTPStatus.NO_CONTENT
 
@@ -75,24 +79,28 @@ class JobPublishResource(Resource):
 
     def put(self, job_id):
         """PUT Method to publish specific job."""
-        job = next((job for job in job_list
-                    if job.id is job_id), None)
+        job = Job.get_by_id(job_id=job_id)
         
         if job is None:
             return {"message": "job not found"}, HTTPStatus.NOT_FOUND
         
         job.is_published = True
 
+        # Save the changes
+        job.save()
+
         return {}, HTTPStatus.OK
     
     def delete(self, job_id):
         """DELETE Method to delete specific job."""
-        job = next((job for job in job_list
-                    if job.id is job_id), None)
+        job = Job.get_by_id(job_id=job_id)
         
         if job is None:
             return {"message": "job not found"}, HTTPStatus.NOT_FOUND
         
         job.is_published = False
+
+        # Save the changes
+        job.save()
 
         return {}, HTTPStatus.OK

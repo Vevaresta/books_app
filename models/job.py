@@ -47,3 +47,7 @@ class Job(db.Model):
     @classmethod
     def get_all_published(cls):
         return cls.query.filter_by(is_published=True).all()
+    
+    @classmethod
+    def get_by_id(cls, job_id):
+        return cls.query.filter_by(id=job_id).first()

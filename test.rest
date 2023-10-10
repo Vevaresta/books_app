@@ -3,7 +3,7 @@ GET http://127.0.0.1:5000/jobs HTTP/1.1
 content-type: application/json
 
 ### Get single job
-GET http://127.0.0.1:5000/jobs/1 HTTP/1.1
+GET http://127.0.0.1:5000/jobs/3 HTTP/1.1
 content-type: application/json
 
 
@@ -12,13 +12,13 @@ POST http://127.0.0.1:5000/jobs HTTP/1.1
 content-type: application/json
 
 {
-    "title": "Backend Developer",
-    "description": "Looking for backend developer remote",
-    "salary": 100000
+    "title": "Software Architecht",
+    "description": "Insane offer",
+    "salary": 1500000
 }
 
 ### Publish the job
-PUT http://127.0.0.1:5000/jobs/1/publish HTTP/1.1
+PUT http://127.0.0.1:5000/jobs/3/publish HTTP/1.1
 content-type: application/json
 
 ### Update the job
@@ -32,5 +32,9 @@ content-type: application/json
 }
 
 ### DELETE a job
-DELETE  http://127.0.0.1:5000/jobs/1/publish HTTP/1.1
+DELETE  http://127.0.0.1:5000/jobs/4 HTTP/1.1
+content-type: application/json
+
+### Unpublish a job
+DELETE  http://127.0.0.1:5000/jobs/3/publish HTTP/1.1
 content-type: application/json
