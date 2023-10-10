@@ -4,6 +4,7 @@ from resources.job import JobListResource, JobResource, JobPublishResource
 from config import Config
 from extensions import db
 from flask_migrate import Migrate
+from models.user import User
 
 
 # Initiate the app
