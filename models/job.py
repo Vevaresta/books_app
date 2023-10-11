@@ -1,5 +1,5 @@
 from extensions import db
-from sqlalchemy import ForeignKey, Integer, String
+from sqlalchemy import Integer, String
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 

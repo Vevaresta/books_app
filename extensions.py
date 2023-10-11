@@ -1,5 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
+from flask_jwt_extended import JWTManager
+
 
 # This code helped me solve a problem with migration to SQLite 
 # (Adding FK relationship between User and Job Model classes)
@@ -14,3 +16,4 @@ metadata = MetaData(
 )
 
 db = SQLAlchemy(metadata=metadata)
+jwt = JWTManager()
