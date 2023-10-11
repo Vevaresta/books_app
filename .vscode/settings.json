@@ -1,8 +1,11 @@
 {
     "cSpell.words": [
+        "backref",
         "jsonify",
+        "passlib",
         "psycopg",
         "sqlalchemy",
         "worktastic"
-    ]
+    ],
+    "python.analysis.typeCheckingMode": "basic"
 }

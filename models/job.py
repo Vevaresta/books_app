@@ -1,5 +1,5 @@
 from extensions import db
-from sqlalchemy import Integer, String
+from sqlalchemy import ForeignKey, Integer, String
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 
@@ -9,6 +9,7 @@ class Job(db.Model):
     __tablename__ = "job"
 
     id: Mapped[int] = mapped_column(primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     title: Mapped[str] = mapped_column(String(50), nullable=False)
     description: Mapped[str] = mapped_column(String(100), nullable=False)
     salary: Mapped[int] = mapped_column(Integer)
