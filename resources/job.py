@@ -23,7 +23,8 @@ class JobListResource(Resource):
         job = Job(     
             title=data["title"],
             description=data["description"],
-            salary=data["salary"]  
+            salary=data["salary"],
+            user_id=data["user_id"]  
         )
         job.save()
         

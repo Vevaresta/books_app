@@ -14,7 +14,8 @@ content-type: application/json
 {
     "title": "Software Architecht",
     "description": "Insane offer",
-    "salary": 1500000
+    "salary": 1500000,
+    "user_id": 5
 }
 
 ### Publish the job
