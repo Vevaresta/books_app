@@ -10,12 +10,13 @@ content-type: application/json
 ### Post a job
 POST http://127.0.0.1:5000/jobs HTTP/1.1
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NzEzMjA2NiwianRpIjoiYWM3MzBiNGUtMDFlYy00NzZmLWJmMjMtNjJhYTljYWFjNGMxIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjk3MTMyMDY2LCJleHAiOjE2OTcxMzI5NjZ9.R8CbM0PzZVhCV4gTkE-oXiFSvQJv9WJmmuISmRk1L1Q
 
 {
     "title": "Software Architecht",
     "description": "Insane offer",
     "salary": 1500000,
-    "user_id": 5
+    "user_id": 1
 }
 
 ### Publish the job

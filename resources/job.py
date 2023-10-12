@@ -2,6 +2,7 @@ from flask import request
 from flask_restful import Resource
 from http import HTTPStatus
 from models.job import Job
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
 
 class JobListResource(Resource):
@@ -16,6 +17,7 @@ class JobListResource(Resource):
 
         return {"Available Jobs": job_data}, HTTPStatus.OK
    
+    @jwt_required()
     def post(self):
         """POST Method to make job offer."""
         data = request.get_json()
