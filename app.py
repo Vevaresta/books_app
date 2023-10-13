@@ -7,7 +7,13 @@ from flask_migrate import Migrate
 from models.user import User
 from resources.token import RefreshResource, TokenResource
 from resources.user import UserListResource
+import logging
 
+
+# Server Logging
+logging.basicConfig(filename='server_log.log', 
+                    level=logging.DEBUG                 
+                    )
 
 # Initiate the app
 app = Flask(__name__)

@@ -1,0 +1,27 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [13/Oct/2023 16:52:32] "GET /jobs HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Oct/2023 16:52:36] "[33mGET /jobs/2 HTTP/1.1[0m" 404 -
+ERROR:app:Exception on /jobs [POST]
+Traceback (most recent call last):
+  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\views.py", line 109, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)
+  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 167, in decorator
+    verify_jwt_in_request(
+  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 94, in verify_jwt_in_request
+    jwt_data, jwt_header, jwt_location = _decode_jwt_from_request(
+  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 362, in _decode_jwt_from_request
+    verify_token_type(decoded_token, refresh)
+  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\internal_utils.py", line 51, in verify_token_type
+    raise WrongTokenError("Only non-refresh tokens are allowed")
+flask_jwt_extended.exceptions.WrongTokenError: Only non-refresh tokens are allowed
+INFO:werkzeug:127.0.0.1 - - [13/Oct/2023 16:53:32] "[35m[1mPOST /jobs HTTP/1.1[0m" 500 -
