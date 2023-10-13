@@ -25,9 +25,12 @@ class JobListResource(Resource):
         job = Job(     
             title=data["title"],
             description=data["description"],
-            salary=data["salary"],
-            user_id=data["user_id"]  
+            salary=data["salary"]       
         )
+
+        user_id = get_jwt_identity()
+        job.user_id = user_id
+        
         job.save()
         
         return job.data, HTTPStatus.CREATED

@@ -3,6 +3,6 @@ POST http://127.0.0.1:5000/users HTTP/1.1
 content-type: application/json
 
 {
-    "username": "Di Livio",
-    "password": "magnifique"
+    "username": "Leonardo",
+    "password": "monaLisa"
 }
