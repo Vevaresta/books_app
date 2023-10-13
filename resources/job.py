@@ -50,6 +50,7 @@ class JobResource(Resource):
 
         return job.data, HTTPStatus.OK
     
+    @jwt_required()
     def put(self, job_id):
         """PUT Method to update the specific job."""
         data = request.get_json()
@@ -59,6 +60,11 @@ class JobResource(Resource):
         if job is None:
             return {"message": "job not found"}, HTTPStatus.NOT_FOUND
         
+        current_user = get_jwt_identity()
+
+        if job.user_id != current_user:
+            return {"message": "access denied"}, HTTPStatus.FORBIDDEN
+
         job.title = data["title"]
         job.description = data["description"]
         job.salary = data["salary"]
@@ -68,12 +74,18 @@ class JobResource(Resource):
 
         return job.data, HTTPStatus.OK
     
+    @jwt_required()
     def delete(self, job_id):
         """DELETE Method to delete specific job."""
         job = Job.get_by_id(job_id=job_id)
         
         if job is None:
             return {"message": "job not found"}, HTTPStatus.NOT_FOUND
+        
+        current_user = get_jwt_identity()
+
+        if job.user_id != current_user:
+            return {"message": "access denied"}, HTTPStatus.FORBIDDEN
         
         # Delete the job from the database
         job.delete()
@@ -83,12 +95,18 @@ class JobResource(Resource):
 
 class JobPublishResource(Resource):
 
+    @jwt_required()
     def put(self, job_id):
         """PUT Method to publish specific job."""
         job = Job.get_by_id(job_id=job_id)
         
         if job is None:
             return {"message": "job not found"}, HTTPStatus.NOT_FOUND
+        
+        current_user = get_jwt_identity()
+
+        if job.user_id != current_user:
+            return {"message": "access denied"}, HTTPStatus.FORBIDDEN
         
         job.is_published = True
 
@@ -97,12 +115,18 @@ class JobPublishResource(Resource):
 
         return {}, HTTPStatus.OK
     
+    @jwt_required()
     def delete(self, job_id):
         """DELETE Method to delete specific job."""
         job = Job.get_by_id(job_id=job_id)
         
         if job is None:
             return {"message": "job not found"}, HTTPStatus.NOT_FOUND
+
+        current_user = get_jwt_identity()
+
+        if job.user_id != current_user:
+            return {"message": "access denied"}, HTTPStatus.FORBIDDEN
         
         job.is_published = False
 

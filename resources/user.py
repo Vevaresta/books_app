@@ -20,7 +20,7 @@ class UserListResource(Resource):
 
         user = User(
             # right side are user variable from this class
-            # left side model properties
+            # left side model class properties
             username=username,
             password=hashed_password
         )

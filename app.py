@@ -5,7 +5,7 @@ from config import Config
 from extensions import db, jwt
 from flask_migrate import Migrate
 from models.user import User
-from resources.token import TokenResource
+from resources.token import RefreshResource, TokenResource
 from resources.user import UserListResource
 
 
@@ -33,6 +33,7 @@ api.add_resource(JobPublishResource, "/jobs/<int:job_id>/publish")
 api.add_resource(UserListResource, "/users")
 
 api.add_resource(TokenResource, "/token")
+api.add_resource(RefreshResource, "/refresh")
 
 # Start server
 if __name__ == "__main__":

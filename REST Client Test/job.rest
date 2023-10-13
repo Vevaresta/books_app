@@ -3,28 +3,32 @@ GET http://127.0.0.1:5000/jobs HTTP/1.1
 content-type: application/json
 
 ### Get single job
-GET http://127.0.0.1:5000/jobs/3 HTTP/1.1
+GET http://127.0.0.1:5000/jobs/2 HTTP/1.1
 content-type: application/json
 
 
 ### Post a job
 POST http://127.0.0.1:5000/jobs HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NzE4ODUyMSwianRpIjoiODg5OGFjMWYtZDc2Ni00NzljLTg0NjgtMjc3ODdmM2ZlYzg4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNjk3MTg4NTIxLCJleHAiOjE2OTcxODk0MjF9.e8wZ9-Jyy68OhUaLgOwTXjh-bOkw6UyuriQ5bab7Tj4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NzE5MTAzOSwianRpIjoiYjE2NTk0MTktZDU1YS00Mzk0LWE4Y2MtZjU2ODdkMWE4ZTAzIiwidHlwZSI6InJlZnJlc2giLCJzdWIiOjIsIm5iZiI6MTY5NzE5MTAzOSwiZXhwIjoxNjk5NzgzMDM5fQ.sLo38pCSVPH0bjHvgzFruDzRfQ2ILKI0rMioYL5z-RA
 
 {
-    "title": "Software Architecht",
-    "description": "Insane offer",
-    "salary": 1500000
+    "title": "Full-Stack Developer",
+    "description": "Remote Option",
+    "salary": 2000000
 }
 
 ### Publish the job
-PUT http://127.0.0.1:5000/jobs/1/publish HTTP/1.1
+PUT http://127.0.0.1:5000/jobs/2/publish HTTP/1.1
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NzE4OTU2MiwianRpIjoiOGI3Y2ZhMTYtZjY2Yy00OTBkLThiNzgtMDIxN2MwYTI5MWE2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNjk3MTg5NTYyLCJleHAiOjE2OTcxOTA0NjJ9.96krb7zVvl3vO7FwhSe-PIgaLCndAob40fvxGzG5A94
+
 
 ### Update the job
-PUT http://127.0.0.1:5000/jobs/2 HTTP/1.1
+PUT http://127.0.0.1:5000/jobs/1 HTTP/1.1
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NzE4OTU2MiwianRpIjoiOGI3Y2ZhMTYtZjY2Yy00OTBkLThiNzgtMDIxN2MwYTI5MWE2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNjk3MTg5NTYyLCJleHAiOjE2OTcxOTA0NjJ9.96krb7zVvl3vO7FwhSe-PIgaLCndAob40fvxGzG5A94
+
 
 {
     "title": "CEO",
@@ -33,9 +37,12 @@ content-type: application/json
 }
 
 ### DELETE a job
-DELETE  http://127.0.0.1:5000/jobs/ HTTP/1.1
+DELETE  http://127.0.0.1:5000/jobs/2 HTTP/1.1
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NzE4OTU2MiwianRpIjoiOGI3Y2ZhMTYtZjY2Yy00OTBkLThiNzgtMDIxN2MwYTI5MWE2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNjk3MTg5NTYyLCJleHAiOjE2OTcxOTA0NjJ9.96krb7zVvl3vO7FwhSe-PIgaLCndAob40fvxGzG5A94
+
 
 ### Unpublish a job
-DELETE  http://127.0.0.1:5000/jobs/3/publish HTTP/1.1
+DELETE  http://127.0.0.1:5000/jobs/2/publish HTTP/1.1
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NzE4OTU2MiwianRpIjoiOGI3Y2ZhMTYtZjY2Yy00OTBkLThiNzgtMDIxN2MwYTI5MWE2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNjk3MTg5NTYyLCJleHAiOjE2OTcxOTA0NjJ9.96krb7zVvl3vO7FwhSe-PIgaLCndAob40fvxGzG5A94

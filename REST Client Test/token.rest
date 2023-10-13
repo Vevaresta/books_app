@@ -6,3 +6,8 @@ content-type: application/json
     "username": "Leonardo",
     "password": "monaLisa"
 }
+
+### Get Refresh Token
+POST http://127.0.0.1:5000/refresh HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NzE5MTAzOSwianRpIjoiYjE2NTk0MTktZDU1YS00Mzk0LWE4Y2MtZjU2ODdkMWE4ZTAzIiwidHlwZSI6InJlZnJlc2giLCJzdWIiOjIsIm5iZiI6MTY5NzE5MTAzOSwiZXhwIjoxNjk5NzgzMDM5fQ.sLo38pCSVPH0bjHvgzFruDzRfQ2ILKI0rMioYL5z-RA
