@@ -15,7 +15,7 @@ import logging.config
 app = Flask(__name__)
 
 # Server logging config
-logging.config.fileConfig('logging_config')
+logging.config.fileConfig('logging_config.conf')
 
 # create logger
 logger = logging.getLogger("server_log")

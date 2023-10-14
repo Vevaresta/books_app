@@ -5,6 +5,9 @@ from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 
 
+logger = logging.getLogger("server_log")
+
+
 class Job(db.Model):
     """Model class for job properties."""
     __tablename__ = "job"
@@ -29,17 +32,23 @@ class Job(db.Model):
     def save(self):
         db.session.add(self)
         db.session.commit()
+        logger.info("Job saved: %s", self.title)
         
-    
     # Delete current object instance
     def delete(self):
         db.session.delete(self)
         db.session.commit()
+        logger.info("Job deleted: %s", self.title)
 
     @classmethod
     def get_all_published(cls):
-        return cls.query.filter_by(is_published=True).all()
+        jobs = cls.query.filter_by(is_published=True).all()
+        logger.info("Fetched all published jobs.")
+        return jobs
     
     @classmethod
     def get_by_id(cls, job_id):
-        return cls.query.filter_by(id=job_id).first()
+        job = cls.query.filter_by(id=job_id).first()
+        logger.info("Fetched job by ID: %s", job_id)
+        # write a method if not user id
+        return job
