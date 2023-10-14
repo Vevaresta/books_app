@@ -1,3 +1,4 @@
+import logging
 from extensions import db
 from sqlalchemy import Integer, String
 from sqlalchemy.orm import Mapped
@@ -28,6 +29,7 @@ class Job(db.Model):
     def save(self):
         db.session.add(self)
         db.session.commit()
+        
     
     # Delete current object instance
     def delete(self):

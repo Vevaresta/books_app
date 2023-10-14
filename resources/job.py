@@ -1,3 +1,4 @@
+import logging
 from flask import request
 from flask_restful import Resource
 from http import HTTPStatus
@@ -32,6 +33,7 @@ class JobListResource(Resource):
         job.user_id = user_id
         
         job.save()
+        logger.info("New Job posted.")
         
         return job.data, HTTPStatus.CREATED
 

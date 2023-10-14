@@ -8,15 +8,17 @@ from models.user import User
 from resources.token import RefreshResource, TokenResource
 from resources.user import UserListResource
 import logging
+import logging.config
 
-
-# Server Logging
-logging.basicConfig(filename='server_log.log', 
-                    level=logging.DEBUG                 
-                    )
 
 # Initiate the app
 app = Flask(__name__)
+
+# Server logging config
+logging.config.fileConfig('logging_config')
+
+# create logger
+logger = logging.getLogger("server_log")
 
 # Configuration file
 app.config.from_object(Config)

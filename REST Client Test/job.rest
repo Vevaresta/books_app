@@ -10,7 +10,7 @@ content-type: application/json
 ### Post a job
 POST http://127.0.0.1:5000/jobs HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NzE5MTAzOSwianRpIjoiYjE2NTk0MTktZDU1YS00Mzk0LWE4Y2MtZjU2ODdkMWE4ZTAzIiwidHlwZSI6InJlZnJlc2giLCJzdWIiOjIsIm5iZiI6MTY5NzE5MTAzOSwiZXhwIjoxNjk5NzgzMDM5fQ.sLo38pCSVPH0bjHvgzFruDzRfQ2ILKI0rMioYL5z-RA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6dHJ1ZSwiaWF0IjoxNjk3Mjg3OTgzLCJqdGkiOiJlNmY5OGY2Yy1kNzMwLTQ4MjAtYjBiMC00YjI0MTQ2NTUwODUiLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoyLCJuYmYiOjE2OTcyODc5ODMsImV4cCI6MTY5NzI4ODg4M30.PbM-TVzd7IqURmsEwW60HOjJurC9z4u_C06HIj5Bjfw
 
 {
     "title": "Full-Stack Developer",
@@ -19,9 +19,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsI
 }
 
 ### Publish the job
-PUT http://127.0.0.1:5000/jobs/2/publish HTTP/1.1
+PUT http://127.0.0.1:5000/jobs/3/publish HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NzE4OTU2MiwianRpIjoiOGI3Y2ZhMTYtZjY2Yy00OTBkLThiNzgtMDIxN2MwYTI5MWE2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNjk3MTg5NTYyLCJleHAiOjE2OTcxOTA0NjJ9.96krb7zVvl3vO7FwhSe-PIgaLCndAob40fvxGzG5A94
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6dHJ1ZSwiaWF0IjoxNjk3Mjg3OTgzLCJqdGkiOiJlNmY5OGY2Yy1kNzMwLTQ4MjAtYjBiMC00YjI0MTQ2NTUwODUiLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoyLCJuYmYiOjE2OTcyODc5ODMsImV4cCI6MTY5NzI4ODg4M30.PbM-TVzd7IqURmsEwW60HOjJurC9z4u_C06HIj5Bjfw
 
 
 ### Update the job
