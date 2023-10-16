@@ -21,20 +21,19 @@ class Job(db.Model):
     
     @property
     def data(self):
+        logger.info("Data accessed for a Job with an ID: %s", self.id)
         return {
             "id": self.id,
             "title": self.title,
             "description": self.description,
             "salary": self.salary
         }
-    
-    # Save current object instance
+
     def save(self):
         db.session.add(self)
         db.session.commit()
         logger.info("Job saved: %s", self.title)
         
-    # Delete current object instance
     def delete(self):
         db.session.delete(self)
         db.session.commit()
@@ -49,6 +48,5 @@ class Job(db.Model):
     @classmethod
     def get_by_id(cls, job_id):
         job = cls.query.filter_by(id=job_id).first()
-        logger.info("Fetched job by ID: %s", job_id)
-        # write a method if not user id
+        logger.info("Fetched job by ID: %s", job_id)       
         return job

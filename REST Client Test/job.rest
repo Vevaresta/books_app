@@ -3,14 +3,14 @@ GET http://127.0.0.1:5000/jobs HTTP/1.1
 content-type: application/json
 
 ### Get single job
-GET http://127.0.0.1:5000/jobs/2 HTTP/1.1
+GET http://127.0.0.1:5000/jobs/1 HTTP/1.1
 content-type: application/json
 
 
 ### Post a job
 POST http://127.0.0.1:5000/jobs HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6dHJ1ZSwiaWF0IjoxNjk3MjkzMTA5LCJqdGkiOiI4ZGVlOGZkOC1jNGRmLTQ0N2UtOGE5OC03Njg5YWU0MzExODkiLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoxLCJuYmYiOjE2OTcyOTMxMDksImV4cCI6MTY5NzI5NDAwOX0.3AYTFnU3GgJDngHRrww90MnzJIeRJ7R9P3tVuNE9vHI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NzQ4MzYyMiwianRpIjoiNDkwZDg5NjItNmVmMS00NjcyLWJmM2ItZWRiNjI2OTI1YjhlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNjk3NDgzNjIyLCJleHAiOjE2OTc0ODQ1MjJ9.H__drVrwpCRgzgl7QmQsSKxEp9ncmpy8MPOinMpnD80
 
 {
     "title": "Full-Stack Developer",
@@ -19,9 +19,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6dHJ1ZSwia
 }
 
 ### Publish the job
-PUT http://127.0.0.1:5000/jobs/5/publish HTTP/1.1
+PUT http://127.0.0.1:5000/jobs/2/publish HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6dHJ1ZSwiaWF0IjoxNjk3MjkzMTA5LCJqdGkiOiI4ZGVlOGZkOC1jNGRmLTQ0N2UtOGE5OC03Njg5YWU0MzExODkiLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoxLCJuYmYiOjE2OTcyOTMxMDksImV4cCI6MTY5NzI5NDAwOX0.3AYTFnU3GgJDngHRrww90MnzJIeRJ7R9P3tVuNE9vHI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NzQ4NDIxNCwianRpIjoiZGE5ZWJjNTUtN2Y2NC00NTlmLWJjZDktNjFhZGM0ODUyYTZhIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNjk3NDg0MjE0LCJleHAiOjE2OTc0ODUxMTR9.P8FHc5--I_WXs1z2TNag7ZAxCjQzT0ZoFZ4tMAIx2BA
 
 ### Update the job
 PUT http://127.0.0.1:5000/jobs/1 HTTP/1.1

@@ -1,42 +1,13 @@
-2023-10-14 16:10:00,619 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2023-10-16 21:21:44,064 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-2023-10-14 16:10:00,621 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
-2023-10-14 16:10:31,302 - app - ERROR - Exception on /jobs/2/publish [DELETE]
-Traceback (most recent call last):
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 489, in wrapper
-    resp = resource(*args, **kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\views.py", line 109, in view
-    return current_app.ensure_sync(self.dispatch_request)(**kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 604, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 167, in decorator
-    verify_jwt_in_request(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 94, in verify_jwt_in_request
-    jwt_data, jwt_header, jwt_location = _decode_jwt_from_request(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 340, in _decode_jwt_from_request
-    decoded_token = decode_token(encoded_token, csrf_token)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\utils.py", line 128, in decode_token
-    return jwt_manager._decode_jwt_from_config(encoded_token, csrf_value, allow_expired)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\jwt_manager.py", line 556, in _decode_jwt_from_config
-    return _decode_jwt(**kwargs, allow_expired=allow_expired)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\tokens.py", line 95, in _decode_jwt
-    decoded_token = jwt.decode(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\jwt\api_jwt.py", line 210, in decode
-    decoded = self.decode_complete(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\jwt\api_jwt.py", line 162, in decode_complete
-    self._validate_claims(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\jwt\api_jwt.py", line 248, in _validate_claims
-    self._validate_exp(payload, now, leeway)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\jwt\api_jwt.py", line 306, in _validate_exp
-    raise ExpiredSignatureError("Signature has expired")
-jwt.exceptions.ExpiredSignatureError: Signature has expired
-2023-10-14 16:10:31,322 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:10:31] "[35m[1mDELETE /jobs/2/publish HTTP/1.1[0m" 500 -
-2023-10-14 16:10:52,908 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:10:52] "POST /refresh HTTP/1.1" 200 -
-2023-10-14 16:11:52,390 - app - ERROR - Exception on /jobs/2 [DELETE]
+2023-10-16 21:21:44,065 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2023-10-16 21:22:01,373 - server_log - INFO - Fetched all published jobs.
+2023-10-16 21:22:01,380 - server_log - INFO - Data accessed for Job with id: 1
+2023-10-16 21:22:01,399 - werkzeug - INFO - 127.0.0.1 - - [16/Oct/2023 21:22:01] "GET /jobs HTTP/1.1" 200 -
+2023-10-16 21:22:08,694 - server_log - INFO - Fetched job by ID: 1
+2023-10-16 21:22:08,710 - server_log - INFO - Data accessed for Job with id: 1
+2023-10-16 21:22:08,729 - werkzeug - INFO - 127.0.0.1 - - [16/Oct/2023 21:22:08] "GET /jobs/1 HTTP/1.1" 200 -
+2023-10-16 21:23:24,267 - app - ERROR - Exception on /jobs/2/publish [PUT]
 Traceback (most recent call last):
   File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
     rv = self.dispatch_request()
@@ -57,188 +28,21 @@ Traceback (most recent call last):
   File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\internal_utils.py", line 51, in verify_token_type
     raise WrongTokenError("Only non-refresh tokens are allowed")
 flask_jwt_extended.exceptions.WrongTokenError: Only non-refresh tokens are allowed
-2023-10-14 16:11:52,433 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:11:52] "[35m[1mDELETE /jobs/2 HTTP/1.1[0m" 500 -
-2023-10-14 16:12:11,296 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:12:11] "POST /token HTTP/1.1" 200 -
-2023-10-14 16:12:35,374 - app - ERROR - Exception on /refresh [POST]
-Traceback (most recent call last):
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 489, in wrapper
-    resp = resource(*args, **kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\views.py", line 109, in view
-    return current_app.ensure_sync(self.dispatch_request)(**kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 604, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 167, in decorator
-    verify_jwt_in_request(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 94, in verify_jwt_in_request
-    jwt_data, jwt_header, jwt_location = _decode_jwt_from_request(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 358, in _decode_jwt_from_request
-    raise NoAuthorizationError(errors[0])
-flask_jwt_extended.exceptions.NoAuthorizationError: Missing Authorization Header
-2023-10-14 16:12:35,386 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:12:35] "[35m[1mPOST /refresh HTTP/1.1[0m" 500 -
-2023-10-14 16:13:21,570 - app - ERROR - Exception on /jobs/2 [DELETE]
-Traceback (most recent call last):
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 489, in wrapper
-    resp = resource(*args, **kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\views.py", line 109, in view
-    return current_app.ensure_sync(self.dispatch_request)(**kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 604, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 167, in decorator
-    verify_jwt_in_request(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 94, in verify_jwt_in_request
-    jwt_data, jwt_header, jwt_location = _decode_jwt_from_request(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 340, in _decode_jwt_from_request
-    decoded_token = decode_token(encoded_token, csrf_token)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\utils.py", line 128, in decode_token
-    return jwt_manager._decode_jwt_from_config(encoded_token, csrf_value, allow_expired)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\jwt_manager.py", line 556, in _decode_jwt_from_config
-    return _decode_jwt(**kwargs, allow_expired=allow_expired)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\tokens.py", line 95, in _decode_jwt
-    decoded_token = jwt.decode(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\jwt\api_jwt.py", line 210, in decode
-    decoded = self.decode_complete(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\jwt\api_jwt.py", line 151, in decode_complete
-    decoded = api_jws.decode_complete(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\jwt\api_jws.py", line 209, in decode_complete
-    self._verify_signature(signing_input, header, signature, key, algorithms)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\jwt\api_jws.py", line 310, in _verify_signature
-    raise InvalidSignatureError("Signature verification failed")
-jwt.exceptions.InvalidSignatureError: Signature verification failed
-2023-10-14 16:13:21,621 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:13:21] "[35m[1mDELETE /jobs/2 HTTP/1.1[0m" 500 -
-2023-10-14 16:13:28,628 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:13:28] "POST /token HTTP/1.1" 200 -
-2023-10-14 16:13:54,886 - app - ERROR - Exception on /refresh [POST]
-Traceback (most recent call last):
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 489, in wrapper
-    resp = resource(*args, **kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\views.py", line 109, in view
-    return current_app.ensure_sync(self.dispatch_request)(**kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 604, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 167, in decorator
-    verify_jwt_in_request(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 94, in verify_jwt_in_request
-    jwt_data, jwt_header, jwt_location = _decode_jwt_from_request(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 362, in _decode_jwt_from_request
-    verify_token_type(decoded_token, refresh)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\internal_utils.py", line 53, in verify_token_type
-    raise WrongTokenError("Only refresh tokens are allowed")
-flask_jwt_extended.exceptions.WrongTokenError: Only refresh tokens are allowed
-2023-10-14 16:13:54,894 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:13:54] "[35m[1mPOST /refresh HTTP/1.1[0m" 500 -
-2023-10-14 16:15:44,040 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:15:44] "POST /token HTTP/1.1" 200 -
-2023-10-14 16:16:11,071 - app - ERROR - Exception on /refresh [POST]
-Traceback (most recent call last):
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 489, in wrapper
-    resp = resource(*args, **kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\views.py", line 109, in view
-    return current_app.ensure_sync(self.dispatch_request)(**kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 604, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 167, in decorator
-    verify_jwt_in_request(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 94, in verify_jwt_in_request
-    jwt_data, jwt_header, jwt_location = _decode_jwt_from_request(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 362, in _decode_jwt_from_request
-    verify_token_type(decoded_token, refresh)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\internal_utils.py", line 53, in verify_token_type
-    raise WrongTokenError("Only refresh tokens are allowed")
-flask_jwt_extended.exceptions.WrongTokenError: Only refresh tokens are allowed
-2023-10-14 16:16:11,081 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:16:11] "[35m[1mPOST /refresh HTTP/1.1[0m" 500 -
-2023-10-14 16:16:28,171 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:16:28] "POST /refresh HTTP/1.1" 200 -
-2023-10-14 16:16:53,821 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2023-10-16 21:23:24,313 - werkzeug - INFO - 127.0.0.1 - - [16/Oct/2023 21:23:24] "[35m[1mPUT /jobs/2/publish HTTP/1.1[0m" 500 -
+2023-10-16 21:23:34,050 - werkzeug - INFO - 127.0.0.1 - - [16/Oct/2023 21:23:34] "POST /refresh HTTP/1.1" 200 -
+2023-10-16 21:23:48,071 - server_log - INFO - Fetched job by ID: 2
+2023-10-16 21:23:48,074 - werkzeug - INFO - 127.0.0.1 - - [16/Oct/2023 21:23:48] "[31m[1mPUT /jobs/2/publish HTTP/1.1[0m" 403 -
+2023-10-16 21:25:30,172 - server_log - INFO - Fetched job by ID: 1
+2023-10-16 21:25:30,173 - server_log - INFO - Data accessed for Job with id: 1
+2023-10-16 21:25:30,175 - werkzeug - INFO - 127.0.0.1 - - [16/Oct/2023 21:25:30] "GET /jobs/1 HTTP/1.1" 200 -
+2023-10-16 21:38:45,493 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-2023-10-14 16:16:53,822 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
-2023-10-14 16:17:06,633 - app - ERROR - Exception on /jobs/5/publish [PUT]
-Traceback (most recent call last):
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 489, in wrapper
-    resp = resource(*args, **kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\views.py", line 109, in view
-    return current_app.ensure_sync(self.dispatch_request)(**kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 604, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 167, in decorator
-    verify_jwt_in_request(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 94, in verify_jwt_in_request
-    jwt_data, jwt_header, jwt_location = _decode_jwt_from_request(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 362, in _decode_jwt_from_request
-    verify_token_type(decoded_token, refresh)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\internal_utils.py", line 51, in verify_token_type
-    raise WrongTokenError("Only non-refresh tokens are allowed")
-flask_jwt_extended.exceptions.WrongTokenError: Only non-refresh tokens are allowed
-2023-10-14 16:17:06,649 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:17:06] "[35m[1mPUT /jobs/5/publish HTTP/1.1[0m" 500 -
-2023-10-14 16:17:14,617 - app - ERROR - Exception on /jobs/2/publish [DELETE]
-Traceback (most recent call last):
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 489, in wrapper
-    resp = resource(*args, **kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\views.py", line 109, in view
-    return current_app.ensure_sync(self.dispatch_request)(**kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 604, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 167, in decorator
-    verify_jwt_in_request(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 94, in verify_jwt_in_request
-    jwt_data, jwt_header, jwt_location = _decode_jwt_from_request(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 362, in _decode_jwt_from_request
-    verify_token_type(decoded_token, refresh)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\internal_utils.py", line 51, in verify_token_type
-    raise WrongTokenError("Only non-refresh tokens are allowed")
-flask_jwt_extended.exceptions.WrongTokenError: Only non-refresh tokens are allowed
-2023-10-14 16:17:14,626 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:17:14] "[35m[1mDELETE /jobs/2/publish HTTP/1.1[0m" 500 -
-2023-10-14 16:17:17,804 - app - ERROR - Exception on /jobs/2 [DELETE]
-Traceback (most recent call last):
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 489, in wrapper
-    resp = resource(*args, **kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\views.py", line 109, in view
-    return current_app.ensure_sync(self.dispatch_request)(**kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 604, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 167, in decorator
-    verify_jwt_in_request(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 94, in verify_jwt_in_request
-    jwt_data, jwt_header, jwt_location = _decode_jwt_from_request(
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 362, in _decode_jwt_from_request
-    verify_token_type(decoded_token, refresh)
-  File "C:\Users\Vevaresta\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_jwt_extended\internal_utils.py", line 51, in verify_token_type
-    raise WrongTokenError("Only non-refresh tokens are allowed")
-flask_jwt_extended.exceptions.WrongTokenError: Only non-refresh tokens are allowed
-2023-10-14 16:17:17,813 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:17:17] "[35m[1mDELETE /jobs/2 HTTP/1.1[0m" 500 -
-2023-10-14 16:18:15,852 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:18:15] "[35m[1mPOST /users HTTP/1.1[0m" 201 -
-2023-10-14 16:18:29,809 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:18:29] "POST /token HTTP/1.1" 200 -
-2023-10-14 16:19:13,548 - server_log - INFO - Job saved: Full-Stack Developer
-2023-10-14 16:19:13,551 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:19:13] "[35m[1mPOST /jobs HTTP/1.1[0m" 201 -
-2023-10-14 16:19:57,948 - server_log - INFO - Fetched job by ID: 2
-2023-10-14 16:19:57,951 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:19:57] "[31m[1mDELETE /jobs/2 HTTP/1.1[0m" 403 -
-2023-10-14 16:21:03,334 - server_log - INFO - Fetched job by ID: 2
-2023-10-14 16:21:03,336 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:21:03] "[31m[1mDELETE /jobs/2/publish HTTP/1.1[0m" 403 -
-2023-10-14 16:22:34,129 - server_log - INFO - Job saved: Full-Stack Developer
-2023-10-14 16:22:34,131 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:22:34] "[35m[1mPOST /jobs HTTP/1.1[0m" 201 -
-2023-10-14 16:22:44,170 - server_log - INFO - Fetched job by ID: 1
-2023-10-14 16:22:44,209 - server_log - INFO - Job deleted: Full-Stack Developer
-2023-10-14 16:22:44,212 - werkzeug - INFO - 127.0.0.1 - - [14/Oct/2023 16:22:44] "[35m[1mDELETE /jobs/1 HTTP/1.1[0m" 204 -
+2023-10-16 21:38:45,501 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2023-10-16 21:38:48,284 - server_log - INFO - Fetched username: Leonardo
+2023-10-16 21:38:48,287 - werkzeug - INFO - 127.0.0.1 - - [16/Oct/2023 21:38:48] "[31m[1mPOST /users HTTP/1.1[0m" 400 -
+2023-10-16 21:39:27,158 - server_log - INFO - Fetched username: Marango
+2023-10-16 21:39:27,183 - server_log - INFO - Hashing password...
+2023-10-16 21:39:27,311 - server_log - INFO - Password hashed successfully.
+2023-10-16 21:39:27,351 - server_log - INFO - User saved: Marango
+2023-10-16 21:39:27,353 - server_log - INFO - Data accessed for a User with an ID: 2
+2023-10-16 21:39:27,357 - werkzeug - INFO - 127.0.0.1 - - [16/Oct/2023 21:39:27] "[35m[1mPOST /users HTTP/1.1[0m" 201 -
